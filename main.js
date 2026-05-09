@@ -10,7 +10,19 @@ const prevBtn = document.querySelector(".prev");
 
 let currentIndex = 0;
 
-const getNotes = () => JSON.parse(localStorage.getItem("notes")) || [];
+const getNotes = () => {
+  const notes = JSON.parse(localStorage.getItem("notes")) || [];
+  if (notes.length === 0) {
+    return [
+      {
+        id: 0,
+        title: "Free",
+        description: "There's No Task",
+      },
+    ];
+  }
+  return notes;
+};
 
 addBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -24,7 +36,10 @@ addBtn.addEventListener("click", (e) => {
 function addNote(title, description) {
   if (!title || !description) return;
   const notes = getNotes();
-
+  const defaultNoteIndex = notes.findIndex((note) => note.id === 0);
+  if (defaultNoteIndex !== -1) {
+    notes.splice(defaultNoteIndex, 1);
+  }
   const note = {
     id: Date.now(),
     title,
