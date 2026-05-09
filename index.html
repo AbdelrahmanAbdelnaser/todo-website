@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <section class="header">
+        <form>
+          <input placeholder="Note Title" id="title" type="text" />
+          <textarea id="description" placeholder="Note Description"></textarea>
+          <button id="add-notes">Add Note</button>
+        </form>
+      </section>
+      <section class="cards">
+        <div class="carousel">
+          <div class="slides"></div>
+
+          <button class="prev btn">‹</button>
+          <button class="next btn">›</button>
+        </div>
+      </section>
+      <section class="notes">
+        <div class="card"></div>
+      </section>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
